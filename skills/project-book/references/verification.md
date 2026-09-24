@@ -4,8 +4,9 @@
 
 Before drafting, confirm how the things the chapter touches really behave:
 
-- Library APIs: context7 (`resolve-library-id` → `query-docs`) first,
-  then upstream source or the web. Say which answered.
+- Library APIs: a docs lookup tool first if the agent has one (e.g.
+  Context7), then official docs, upstream source, or the web. Say which
+  answered.
 - Live services: curl them and keep the exact output (status, headers,
   body shape). Try 2–3 providers (Docker Hub, ghcr, quay, mcr) to find
   where they differ.
@@ -17,7 +18,7 @@ Before drafting, confirm how the things the chapter touches really behave:
 Never write in the user's own project folder. Instead:
 
 ```bash
-S=<session scratchpad>
+S=<book>/.book/scratch   # gitignored, survives agent switches
 cp -r <book>/<tool> $S/<tool> && rm -rf $S/<tool>/.git
 ```
 
@@ -32,6 +33,11 @@ cp -r <book>/<tool> $S/<tool> && rm -rf $S/<tool>/.git
 - Run the book's check command (`npm run check`, `make check`) until green.
 
 ## Capture everything the chapter shows
+
+Save each capture **the moment it's taken** to
+`.book/captures/chNN/NN-<what>.txt`: the command, a `# state:` line saying
+what the code looked like, then the raw output. Another agent can then
+continue the chapter without re-running anything.
 
 - Final test counts, and the count after each step that shows one.
 - Errors shown mid-step: **rebuild that exact in-between state** (only the

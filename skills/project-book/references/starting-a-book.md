@@ -14,7 +14,7 @@
 ## Decisions: ask one at a time
 
 Ask each as a separate question, give a recommendation, and wait for the
-answer. Record every answer in the book's memory entry and `AGENTS.md`.
+answer. Record every answer in `.book/state.md` (and rules in `AGENTS.md`).
 
 1. Language version / runtime (e.g. Node LTS, Go 1.x).
 2. Test framework (Vitest, testify, ...).
@@ -39,8 +39,17 @@ answer. Record every answer in the book's memory entry and `AGENTS.md`.
 │   ├── 00-outline.md  # how the book works, what the finished tool does, TOC
 │   ├── 01-....md
 │   └── 02.5-<lang>-primer.md   # optional short primer, the one theory chapter
+├── .book/
+│   ├── state.md       # progress + next action (assets/state-template.md)
+│   ├── concepts.md    # what's been shown in full, and where
+│   ├── captures/      # real output, one file per capture
+│   └── scratch/       # scratch copy of the user's code (gitignored)
 └── <tool>/            # the USER's own code: they write it, we only read it
 ```
+
+Add `.book/scratch/` to `.gitignore`. If the user wants the skill to
+travel with the book, copy it to `.agents/skills/project-book/` and
+mention that path in `AGENTS.md`.
 
 Chapter files are `NN-slug.md`. A half-step `02.5` is used for a short
 primer chapter.
@@ -56,8 +65,12 @@ primer chapter.
 - Dependencies, and why each one (and why everything else is built by
   hand).
 
-## Memory
+## State
 
-Create `book-<slug>.md` (type project) holding: location, the user's code
-folder, the decisions above with **Why/How to apply**, and a progress line.
-Link the feedback memories from it.
+Create `.book/state.md` from assets/state-template.md with the book facts,
+the decisions above (each with its reason), and a Progress table listing
+every chapter in the outline as `planned`. Create an empty
+`.book/concepts.md` ledger. See book-state.md.
+
+If the agent has its own memory, a one-line pointer to the book is fine.
+The state itself stays in `.book/`.

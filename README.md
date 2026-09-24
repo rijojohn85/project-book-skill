@@ -24,6 +24,11 @@ mini container runtime in Go, and a container image puller in TypeScript):
 - **Clean code, DRY, SOLID.** The book's code follows them, and each one is
   named in plain words at the line where it pays off, never lectured.
 - **Honest gaps.** Each chapter says what it doesn't handle, and why.
+- **Works with any agent, and resumes halfway.** All progress lives in the
+  book's own repo (`.book/state.md`, a concept ledger, saved real output), not
+  in one agent's memory. Switch from Claude Code to Codex, Cursor, or Gemini
+  CLI in the middle of a chapter, and the next agent picks up at the exact
+  next step.
 
 ## How it loads (progressive disclosure)
 
@@ -35,6 +40,7 @@ its condition is true:
 skills/project-book/
 ├── SKILL.md                       workflow, always-on rules, the "what to load when" table
 ├── references/
+│   ├── book-state.md              resuming / handing over: the .book/ folder, checkpoints
 │   ├── starting-a-book.md         new book only: choosing the project, decisions, outline, layout
 │   ├── prose-style.md             writing chapter prose; terminal-block rules
 │   ├── code-in-chapters.md        chapters with code: first-time vs "Your turn", comments, edits
@@ -44,7 +50,8 @@ skills/project-book/
 │   └── lang-go.md                 Go books only
 └── assets/
     ├── chapter-template.md        chapter skeleton
-    └── AGENTS-template.md         per-book rules file (overrides the skill)
+    ├── AGENTS-template.md         per-book rules file (overrides the skill)
+    └── state-template.md          .book/state.md skeleton
 ```
 
 ## Install
@@ -76,10 +83,30 @@ cp -r /path/to/project-book-skill/skills/project-book .claude/skills/
 
 Commit it, and anyone working on the book gets the skill.
 
-### Other agents
+### Other agents that support Agent Skills
 
-Copy `skills/project-book/` into the folder where your agent looks for skills.
-The format follows the [Agent Skills specification](https://agentskills.io/specification).
+Copy (or symlink) `skills/project-book/` into the folder where your agent
+looks for skills. Many agents read `~/.agents/skills/` or a project's
+`.agents/skills/`; check your agent's docs for its exact path. The format
+follows the [Agent Skills specification](https://agentskills.io/specification).
+
+### Agents without skill support: put it in the book
+
+Copy the skill into the book itself, and point the book's `AGENTS.md` at it.
+Most coding agents read `AGENTS.md` on their own.
+
+```bash
+mkdir -p my-book/.agents/skills
+cp -r project-book-skill/skills/project-book my-book/.agents/skills/
+```
+
+```markdown
+<!-- in my-book/AGENTS.md -->
+## Workflow
+Follow `.agents/skills/project-book/SKILL.md`. State lives in `.book/state.md`.
+```
+
+This also pins the skill's version to the book.
 
 ### Check it's installed
 
@@ -105,12 +132,24 @@ Trigger it by what you say, or call it directly with `/project-book`:
 - "Resume" / "it works." The agent checks that your code compiles and its
   tests pass, and points to anything that's off. It doesn't edit your files.
 
+### Switching agents mid-book
+
+Just open the book in the new agent and say "resume the book". The skill
+(or `AGENTS.md`) tells it to read `.book/state.md` first. That file holds the
+chapter in progress, its phase, what's been captured, and a specific
+**Next:** line. The agent checks that against the repo, adds a
+"picked up by ..." log line, tells you where things stand, and continues.
+
+The scratch copy (`.book/scratch/`) is gitignored. If it's missing (new
+machine), the agent rebuilds it from your code and the book's chapters.
+
 ### Book layout it expects
 
 ```
 my-book/
 ├── AGENTS.md        # this book's rules; they override the skill
 ├── book.toml        # mdBook
+├── .book/           # state.md, concepts.md, captures/, scratch/ (gitignored)
 ├── src/
 │   ├── SUMMARY.md
 │   ├── 00-outline.md

@@ -28,5 +28,17 @@
 
 ## Process
 - One chapter at a time. Write it, stop, the user tries it, then the next.
-- Check real interfaces before drafting (context7 first, then upstream).
+- Check real interfaces before drafting (a docs lookup tool if the agent has
+  one, then official docs, upstream source, the live service).
+
+## State (any agent, any tool)
+- Progress, decisions, and the next action live in `.book/state.md`. Read it
+  first; update it at every checkpoint and before stopping.
+- What's been shown in full vs "Your turn": `.book/concepts.md`.
+- Real captured output: `.book/captures/chNN/`. Scratch copy of the user's
+  code: `.book/scratch/` (gitignored).
+- Workflow: the project-book skill
+  (https://github.com/rijojohn85/project-book-skill). If your agent can't
+  load skills, read `skills/project-book/SKILL.md` from that repo, or from
+  `.agents/skills/project-book/` if it's copied into this book.
 - The user's code lives in `<path>`: read only.
