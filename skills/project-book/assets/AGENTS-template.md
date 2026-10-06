@@ -26,6 +26,23 @@
 - Later chapters show edits, not full reprints. Say which file and where.
 - <language-specific rules>
 
+## Keeping the "why" visible
+- "Where we are" map after each chapter's opening: the outline's stages,
+  marked ✓ done, ▶ this chapter, · later.
+- Open on the gap, shown with real output. Then a why paragraph and
+  "By the end of this chapter you can:" (2-4 bullets).
+- End on the next gap.
+- Walking skeleton by chapter <N>: the tool works end to end, roughly.
+  Later chapters replace one shortcut each and say which.
+
+## Write it whole, then split it
+- Reuse a function if it exists; otherwise write new logic inline first.
+- Once it works, split out helpers only when the split teaches something
+  (a SOLID idea, testability, or a second use for DRY).
+- Test the outer function first; those tests survive the split. Show
+  "N tests still pass" after each small split step.
+- Cap the inline function at about 40 lines.
+
 ## Process
 - One chapter at a time. Write it, stop, the user tries it, then the next.
 - Check real interfaces before drafting (a docs lookup tool if the agent has

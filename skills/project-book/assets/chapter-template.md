@@ -5,6 +5,28 @@ plain sentences. Why it matters to the tool.>
 
 New in this chapter: <plain list of new syntax, APIs, tools>.
 
+## Where we are
+
+<The outline's stages, one line each: ✓ done, ▶ **this chapter**, · later
+(with the chapter that does it).>
+
+<The gap, shown for real: run the tool as the last chapter left it.>
+
+```
+$ <run>
+```
+
+```
+<real output showing what's missing>
+```
+
+<Why paragraph: how this chapter gets us closer to the end goal.>
+
+By the end of this chapter you can:
+
+- <something the reader can do>
+- ...
+
 ## <The real thing, by hand>
 
 <curl / shell commands against the real service, real output, each part
@@ -56,9 +78,20 @@ $ git commit -m "<message>"
 
 ## What you should now be able to answer
 
-- <question>?
+Try to answer each one in your own words first. Then open the answer
+to check.
+
+**1. <question>?**
+
+<details>
+<summary>Answer</summary>
+
+<answer in plain words, 2-5 sentences, matching what the chapter taught>
+
+</details>
 
 ## Next chapter
 
-<One paragraph: what comes next and what new idea it needs. The next
-chapter must keep this promise.>
+<One paragraph: the gap that's still open (real output where possible),
+what comes next, and what new idea it needs. The next chapter must keep
+this promise.>

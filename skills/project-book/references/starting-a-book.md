@@ -27,6 +27,10 @@ answer. Record every answer in `.book/state.md` (and rules in `AGENTS.md`).
 6. Audience: what the reader already knows. Skip the basics they have.
 7. How design principles appear. Default: named at the line where they
    apply, in plain words, never a lecture.
+8. When the walking skeleton walks: the chapter where the tool first works
+   end to end, roughly. Recommend about a third of the way in, with each
+   shortcut listed and the later chapter that replaces it. (Default yes:
+   a bottom-up book without one loses the "why"; see prose-style.md.)
 
 ## Layout
 
@@ -60,6 +64,10 @@ primer chapter.
   tested and how. Say up front that later chapters show edits, not
   full reprints, and name the check command.
 - "What the finished tool does": a terminal block of the end result.
+- "The stages": the finished tool's job split into about six stages, each
+  with the chapter(s) that build it. Every chapter's "Where we are" map
+  uses this exact list.
+- The walking-skeleton chapter, and the shortcuts it takes.
 - Table of contents: one line per chapter, saying what working piece it
   adds. Put the design principle in italics where it will come up.
 - Dependencies, and why each one (and why everything else is built by

@@ -80,6 +80,13 @@ These are short. The reference files explain the details.
   and each is named in plain words at the line where it pays off, never
   lectured. Run design-principles.md's checklist before handing over.
 - **Be honest about gaps.** Say what the chapter doesn't handle, and why.
+- **Keep the "why" visible.** Every chapter shows a "Where we are" map,
+  opens on a real gap, says why it matters, and ends on the next gap. Plan
+  a rough end-to-end version early (a walking skeleton). See prose-style.md.
+- **Write it whole, then split it.** Reuse existing functions; write new
+  logic inline first. Once it works, split out helpers only when the
+  split teaches something (SOLID, testability, a second use), with tests
+  passing after each step. See prose-style.md.
 - **Every chapter ends with** the check command passing, one git commit, a
   list of "what you should now be able to answer", and a one-paragraph
   preview of the next chapter.
