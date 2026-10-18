@@ -44,7 +44,7 @@ Load a reference file only when its condition is true.
 |---|---|
 | Resuming, handing over, or `.book/` is missing or unclear | [references/book-state.md](references/book-state.md) |
 | Starting a brand-new book (no outline yet) | [references/starting-a-book.md](references/starting-a-book.md) |
-| Drafting or revising any chapter's prose | [references/prose-style.md](references/prose-style.md) |
+| Drafting or revising any chapter's prose (also: STE style, `GLOSSARY.md`, terminal-block format) | [references/prose-style.md](references/prose-style.md) |
 | Any chapter that contains code or tests | [references/code-in-chapters.md](references/code-in-chapters.md) |
 | Designing a chapter's code, or naming a design principle in the prose | [references/design-principles.md](references/design-principles.md) |
 | Before writing prose that quotes output, errors, test counts, or API behavior | [references/verification.md](references/verification.md) |
@@ -87,6 +87,14 @@ These are short. The reference files explain the details.
   logic inline first. Once it works, split out helpers only when the
   split teaches something (SOLID, testability, a second use), with tests
   passing after each step. See prose-style.md.
+- **Build code from the ground up, keep the whole in view.** Smallest
+  working piece first, one idea per step. At every step show a map of the
+  whole program, mark the part being added, and say what comes later.
+- **Several agents, if the user wants them.** Ask once. The usual split: the
+  main agent only coordinates; a scratch agent runs commands and saves
+  captures; a different agent writes the chapter from the captures; a
+  reviewer agent checks it. Record the split in `AGENTS.md` ("Who does
+  what") and follow it for every chapter and non-trivial revision.
 - **Every chapter ends with** the check command passing, one git commit, a
   list of "what you should now be able to answer", and a one-paragraph
   preview of the next chapter.

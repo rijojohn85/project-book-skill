@@ -17,3 +17,16 @@
   RBAC) before drafting. When the real dependency can't run locally,
   build a fake of its API (see verification.md). The user's own `kind`
   cluster is the final proof, so ask them to paste the output.
+
+## Building a Go program in the chapter
+
+- Build each program from the ground up: the smallest piece that runs
+  first (for example, connect and print OK), then one idea per step, run
+  after each step, real output captured for each.
+- Keep the whole program in view. Before the first step, show a short map
+  of the finished program's parts (for example: flags, client, send,
+  result), each with one plain sentence. At every later step, show the map
+  again, mark the part this step adds, and say what the parts still to
+  come will do. If a step changes the map, say how.
+- The reader must always know where the code they are typing sits in the
+  whole program, and why.

@@ -12,8 +12,8 @@ New in this chapter: <plain list of new syntax, APIs, tools>.
 
 <The gap, shown for real: run the tool as the last chapter left it.>
 
-```
-$ <run>
+```sh
+<run>
 ```
 
 ```
@@ -42,8 +42,8 @@ explained in plain words.>
 <Why this step. First-time code in full, with comments. Or: explain →
 "Your turn" → "Here it is:" → code.>
 
-```
-$ <check command>
+```sh
+<check command>
 ```
 
 ```
@@ -54,8 +54,8 @@ $ <check command>
 
 ## Try it
 
-```
-$ <run>
+```sh
+<run>
 ```
 
 ```
@@ -70,10 +70,10 @@ $ <run>
 
 ## Commit
 
-```
-$ <check command>
-$ git add -A
-$ git commit -m "<message>"
+```sh
+<check command>
+git add -A
+git commit -m "<message>"
 ```
 
 ## What you should now be able to answer

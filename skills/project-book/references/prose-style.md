@@ -117,11 +117,13 @@ lecture section.
 The reader copies commands from the book. Output must never look like a
 command.
 
-- Commands start with `$ ` (normal user) or `# ` (root). Nothing else
-  starts with those.
-- Output has **no** prefix.
-- Prefer two blocks, the command then the output. A sentence between them
-  ("you should see:") helps when it isn't obvious.
+- Commands go in their own ```` ```sh ```` block with **no** `$ ` prompt, so
+  the reader can copy and paste them. Use `sudo` in the command when root
+  is needed.
+- Output goes in a separate plain ```` ``` ```` block and has no prefix.
+  Never mix commands and output in one block.
+- A sentence between the two blocks ("you should see:") helps when it
+  isn't obvious.
 - No bare `#` comment lines inside terminal blocks. Put explanations in
   the prose.
 - Headers or long output may be trimmed. Say so in the prose ("headers
@@ -129,3 +131,16 @@ command.
 
 (Why: a reader once pasted an output line into bash, because the command
 and output were formatted the same.)
+
+## Simplified Technical English and a glossary
+
+Ask the user once, early, if they want the prose in ASD-STE100 Simplified
+Technical English style. If yes, record it in `AGENTS.md`:
+
+- Short sentences (about 20 words or fewer), active voice, no contractions,
+  one idea per sentence. Instructions are commands. Steps and facts go in
+  lists. Code, commands and captured output are not changed by this rule.
+- Keep a `GLOSSARY.md` in the book root: one approved word per idea, with
+  an "Avoid" line for the synonyms. Prose uses those words and only those.
+  A chapter that introduces a term adds it to the glossary.
+- Do not use a second word for the same idea, even a good synonym.

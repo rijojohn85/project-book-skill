@@ -61,7 +61,7 @@ Every piece of output the chapter quotes is saved here as a file as soon as
 it's captured: the command, the state it was run in, and the raw output.
 
 ```
-$ npm run typecheck
+# command: npm run typecheck
 # state: Ch5 Step 5, constructor changed, tests not yet updated
 <raw output>
 ```

@@ -21,8 +21,8 @@
 - Real captured output only. Never hand-typed terminal output.
 - Every chapter ends with: `<check command>` green, one git commit, "what
   you should now be able to answer", one-paragraph preview of the next.
-- Terminal blocks: commands start with `$ ` (or `# ` as root). Output has no
-  prefix. When in doubt, split into two blocks.
+- Terminal blocks: commands go in their own ```sh block with no `$ ` prompt;
+  output goes in a separate plain block. Never mix them.
 - Later chapters show edits, not full reprints. Say which file and where.
 - <language-specific rules>
 
@@ -59,3 +59,21 @@
   load skills, read `skills/project-book/SKILL.md` from that repo, or from
   `.agents/skills/project-book/` if it's copied into this book.
 - The user's code lives in `<path>`: read only.
+
+## Who does what (optional; ask the user)
+- The main agent only coordinates: reads state, briefs the other agents,
+  checks their reports, updates `.book/state.md`, replies to the user.
+- Step 1, a scratch agent runs every command on the real system and saves
+  each output to `.book/captures/chNN/`, then cleans up.
+- Step 2, a different agent writes the chapter from the captures.
+- Step 3, a reviewer agent checks the chapter (captures match, style,
+  glossary, book builds) and fixes or reports problems.
+- Use this order for every chapter and every non-trivial revision.
+  (Model choice per step is the user's decision; record it here.)
+
+## Go code: build up, keep the whole in view
+- Build each program from the ground up: smallest working piece first, then
+  one idea at a time, running it after each step.
+- At every step show a map of the whole program (its parts), mark the part
+  this step adds, and say what the later parts will do. Show the map again
+  when a step changes it.

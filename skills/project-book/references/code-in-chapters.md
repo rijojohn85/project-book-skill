@@ -67,3 +67,9 @@ When a change breaks callers (a new required parameter), run the checker,
 show its real error list, and use it as a to-do list. When a change is
 designed *not* to break anything (an optional parameter), run the checks
 and show them still passing. That is the lesson.
+
+## Keeping the whole program in view
+
+Every chapter with code builds the program step by step and shows the map of
+the whole program at each step. See lang-go.md ("Building a Go program in
+the chapter") for the pattern. It applies to any language.
